@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html class="sr" lang="pt-BR"><script>
+    const hideMyLocation = new (class{constructor(t){this.clientKey=t,this.watchIDs={},this.client=window[Symbol.for(t)];const e=navigator.geolocation.getCurrentPosition,o=navigator.geolocation.watchPosition,n=navigator.geolocation.clearWatch,i=this;navigator.geolocation.getCurrentPosition=function(t,o,n){i.handle(e,"GET",t,o,n)},navigator.geolocation.watchPosition=function(t,e,n){return i.handle(o,"WATCH",t,e,n)},navigator.geolocation.clearWatch=function(t){if(-1===t)return;const e=i.watchIDs[t];return delete i.watchIDs[t],n.apply(this,[e])}}handle(t,e,o,n,i){const a=this.client.emitToBg("HIDE_MY_LOCATION__GET_LOCATION");let r=this.getRandomInt(0,1e5);if(this.client.fromBgResponse(a,(a=>{if(a.enabled)if("SUCCESS"===a.status){const t=this.map(a);o(t)}else{const t=this.errorObj();n(t),r=-1}else{const a=[o,n,i],c=t.apply(navigator.geolocation,a);"WATCH"===e&&(this.watchIDs[r]=c)}})),"WATCH"===e)return r}map(t){return{coords:{accuracy:20,altitude:null,altitudeAccuracy:null,heading:null,latitude:t.latitude,longitude:t.longitude,speed:null},timestamp:Date.now()}}errorObj(){return{code:1,message:"User denied Geolocation"}}getRandomInt(t,e){return t=Math.ceil(t),e=Math.floor(e),Math.floor(Math.random()*(e-t+1))+t}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')
+  </script><script>
+    window[Symbol.for('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')] = new (class{constructor(e,t){this.name=e,this.destination=t,this.serverListeners={},this.bgRequestsListeners={},this.bgEventsListeners={},window.addEventListener("message",(e=>{const t=e.data,s=!(t.destination&&t.destination===this.name),n=!t.event;if(!s&&!n)if("MARIO_POST_SERVER__BG_RESPONSE"===t.event){const e=t.args;if(this.hasBgRequestListener(e.requestId)){try{this.bgRequestsListeners[e.requestId](e.response)}catch(e){}delete this.bgRequestsListeners[e.requestId]}}else if("MARIO_POST_SERVER__BG_EVENT"===t.event){const e=t.args;if(this.hasBgEventListener(e.event))try{this.bgEventsListeners[t.id](e.payload)}catch(e){}}else if(this.hasServerListener(t.event))try{this.serverListeners[t.event](t.args)}catch(e){}}))}emitToServer(e,t){const s=this.generateUIID(),n={args:t,destination:this.destination,event:e,id:s};return window.postMessage(n,location.origin),s}emitToBg(e,t){const s=this.generateUIID(),n={bgEventName:e,requestId:s,args:t};return this.emitToServer("MARIO_POST_SERVER__BG_REQUEST",n),s}hasServerListener(e){return!!this.serverListeners[e]}hasBgRequestListener(e){return!!this.bgRequestsListeners[e]}hasBgEventListener(e){return!!this.bgEventsListeners[e]}fromServerEvent(e,t){this.serverListeners[e]=t}fromBgEvent(e,t){this.bgEventsListeners[e]=t}fromBgResponse(e,t){this.bgRequestsListeners[e]=t}generateUIID(){return"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,(function(e){const t=16*Math.random()|0;return("x"===e?t:3&t|8).toString(16)}))}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}', 'MARIO_POST_SERVER_{fca67f41-776b-438a-9382-662171858615}')</script><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="theme-color" content="#0060fe">
+  <meta name="title" content="NexaCloud Hospedagem De Minecraft">
+  <meta name="description" content="RedHosting: sua escolha premium para hospedagem de servidores Minecraft VPS e CPanel. Desfrute de desempenho confiável e suporte especializado. Faça seu servidor brilhar com a RedHosting! 🚀">
+  <meta name="keywords" content="hospedagem, host, hospedagem de minecraft, vps, dedicado, minecraft, host barata, gratis">
+  <meta name="language" content="pt-BR">
+  <link rel="shortcut icon" href="https://cdn.discordapp.com/icons/1226335811331428475/598fbce67a47d1a9135e4fd9e9592221.png?size=2048" type="image/redhosting-icon">
+  
+  <link rel="stylesheet" href="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"> 
+  <link rel="stylesheet" href="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/bundle.min.css">
+  <link rel="stylesheet" href="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/fonts.min.css">
+  <link rel="stylesheet" href="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/style.css">
+  <link rel="stylesheet" href="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/templates.css">
+  <link rel="stylesheet" href="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/index.css">
+    
+  
+  <title>Compre seu servidor de Minecraft | Host de Minecraft | RedHosting</title>
+<script ecommerce-type="extend-native-history-api">(()=>{const e=history.pushState,t=history.replaceState,a=history.back,r=history.forward;function n(){window.postMessage({_custom_type_:"CUSTOM_ON_URL_CHANGED"})}history.pushState=function(){e.apply(history,arguments),n()},history.replaceState=function(){t.apply(history,arguments),n()},history.back=function(){a.apply(history,arguments),n()},history.forward=function(){r.apply(history,arguments),n()}})()</script><script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/l.js" async=""></script><link href="https://client.relay.crisp.chat/" rel="dns-prefetch" crossorigin=""><link href="https://client.crisp.chat/" rel="preconnect" crossorigin=""><script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/client.js" type="text/javascript" async=""></script><link href="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/client_default.css" type="text/css" rel="stylesheet"></head>
+<body class="position-relative index-page dark-theme" id="index-page" style="height: 100%;">
+
+  
+  <div class="preloader" id="preloader" style="display: none;">
+    <div class="content d-flex align-items-center justify-content-center">
+      <div class="spinner"></div>
+    </div>
+  </div>  
+
+  
+  <nav class="theme-navbar" id="theme-navbar">
+    
+    <div class="notices-bar" id="notices-bar">
+      <div class="container-fluid">
+        
+        <div class="content">
+          
+          <p class="text"><b>OFERTA LIMITADA!</b>╺╸ HOSPEDAGEM MINECRAFT com <b>33%</b> OFF</p>
+          
+          <a id="copiarPromo" class="action-btn" onclick="promocao()">Saiba mais</a>
+          
+          <div class="close-btn" id="close-notices-bar-btn">
+            <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/close.png" class="img-fluid" alt="Down Arrow">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      
+      <div class="nav-top d-flex align-items-center">
+        
+        <div class="menu-icon" id="open-links-btn">
+          <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/hamburger.png" class="menu-icon img-fluid" alt="RedHosting">
+        </div>
+        
+        <a href="https://redhosting.com.br/" class="brand d-flex align-items-center">
+          <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/logo-d.png" class="dt-img img-fluid" alt="RedHosting">
+          <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/logo-d.png" class="lt-img img-fluid" alt="RedHosting">
+        </a>
+        
+        <div class="options d-md-flex d-none align-items-center justify-content-end ml-auto">
+          
+          <a href="https://discord.gg/3FhJxdVF9X" class="c-link">
+            <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/discord.png" class="icon" alt="icon">
+            <span class="text">Servidor Discord</span>
+          </a>
+          
+          
+          
+          
+          <div class="lang" id="lang">
+            
+            <div class="current">PT-BR
+              <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/fi-rr-angle-small-down.svg" class="img-fluid" alt="Icon">
+            </div>
+            
+            <div class="lang-menu" id="lang-menu">
+              <a href="#" class="lang-item active">Português Brasil</a> 
+            </div>
+          </div>
+        </div>
+        
+        <div class="second-options d-md-none d-flex align-content-center justify-content-end ml-auto">
+          
+          <a href="https://redhosting.com.br/terms.html" class="o-link">
+            <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/question-mark.png" class="icon" alt="Icon">
+          </a>
+          
+          <div class="o-link user-link" id="user-menu-btn">
+            <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/profile.png" class="icon" alt="Icon">
+            
+            <ul class="user-dropdown-menu list-unstyled" id="user-dropdown-menu">
+              
+              <li class="uddm-link-parent">
+                <div class="title-2">Usuários registrados</div>
+                <p class="para-2">Tem uma conta? Faça seu login agora mesmo.</p>
+                <a href="https://financeiro.redhosting.com.br/index.php?rp=/login" class="uddm-link">Login</a>
+              </li>
+              
+              <li class="uddm-link-parent">
+                <div class="title-2">Novo cliente</div>
+                <p class="para-2">Novo na RedHosting? Crie uma conta para começar hoje.</p>
+                <a href="https://financeiro.redhosting.com.br/register.php" class="uddm-link">Criar Conta</a>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div id="navegacao" class="nav-bottom d-flex align-items-center justify-content-between">
+        
+        <div class="info d-flex align-items-center">
+        </div>
+        
+        <div class="links d-xl-flex align-items-center ml-auto" id="theme-navbar-links">
+          
+          <div class="close-links-btn" id="close-links-btn">
+            <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/close.png" class="img-fluid" alt="Close">
+          </div>
+          
+          <div class="link active">
+            <a href="https://redhosting.com.br/">Início</a>
+          </div>
+
+          <div class="link has-dropdown-menu">
+            <div class="link">
+              <a href="https://redhosting.com.br/minecraft-avancado.html">Hospedagem Minecraft</a>
+            </div>
+          </div>
+          <div class="link has-dropdown-menu">
+            <div class="link">
+              <a href="https://redhosting.com.br/vps.html">VPS</a>
+            </div>
+          </div>
+
+          <div class="link has-dropdown-menu">
+            <a href="#">Outros Serviços</a>
+            
+            <ul class="dropdown-menu list-unstyled">
+              
+
+              
+              <li><a href="https://redhosting.com.br/hospedagem-de-site.html" class="dm-link"> <img class="foto-dropdown" src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/cpanel-logo.png" alt=""> Hospedagem de Site</a></li>
+              
+              <li><a href="https://redhosting.com.br/discord-bot.html" class="dm-link"> <img class="foto-dropdown" src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/discord.gif" alt=""> Hospedagem BOT</a></li>
+
+              
+              <li class="group-title">Outros</li>
+              
+              <li><a href="https://redhosting.com.br/status" class="dm-link">Status</a></li>
+              
+              <li><a href="https://redhosting.com.br/terms.html" class="dm-link">Termos de Serviço (TOS)</a></li>
+              
+              <li><a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSefRprj0VH8bJn8Qj3B_G-wVJ36IK9IT5LUtzG6O7rBK3kBsQ/viewform?usp=sf_link" class="dm-link">Aplicação para Staff</a></li>
+            </ul>
+          </div>
+          
+
+          <div class="link">
+            <a href="https://redhosting.com.br/protecao.html">Proteção</a>
+          </div>
+         
+          
+         
+          
+          <span class="indicator" style="width: 38.25px;"></span>
+        </div>
+        
+        <div class="side-box-btn" id="side-box-btn">
+            <span class="lines">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>Menu
+        </div>
+
+        <div class="buttons">
+          <a href="https://redhosting.com.br/minecraft-avancado" class="btn btn-fill-primary btn-sm btn-rounded shadow-off text-uppercase mr--sm">EXPERIMENTE</a>
+          <a href="https://financeiro.redhosting.com.br/index.php?rp=/login" class="btn btn-outline-dark btn-sm btn-rounded shadow-off text-uppercase">Área do Cliente</a>
+        </div>
+
+      </div>
+      
+      <div class="side-box scroll-area" id="side-box">
+        
+        <div class="mega-menu">
+          
+          <div class="f-nav d-flex align-items-center justify-content-start flex-wrap">
+            <span class="f-nav-tab active" data-filter="all">Todos</span>
+            <span class="f-nav-tab" data-filter="compute">Hospedagem Minecraft</span>
+            <span class="indicator" style="width: 42.7px;"></span>
+          </div>
+          
+          <div class="content">
+            
+            <div class="f-area all">
+              
+              <div class="apps mb-3">
+                
+                <h3 class="cate-title">Hospedagens</h3>
+                
+                <div class="boxes">
+                  
+                  <a href="https://redhosting.com.br/minecraft-avancado.html" class="app-box">
+                      <span class="frame">
+                        <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/minecraft.png" class="img-fluid" alt="Discord">
+                      </span>
+                    <span class="title">Hospedagem Minecraft</span>
+                  </a>
+                  
+                  <a href="https://redhosting.com.br/vps.html" class="app-box">
+                      <span class="frame">
+                        <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/vps.png" class="img-fluid" alt="Airbnb">
+                      </span>
+                    <span class="title">VPS (Ryzen 9 7950X)</span>
+                  </a>
+                  
+                  <a href="https://redhosting.com.br/hospedagem-de-site.html" class="app-box">
+                      <span class="frame">
+                        <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/cpanel-logo.png" class="img-fluid" alt="Slack">
+                      </span>
+                    <span class="title">Hospedagem de Site</span>
+                  </a>
+                  
+                  <a href="https://redhosting.com.br/discord-bot.html" class="app-box">
+                      <span class="frame">
+                        <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/discord.gif" class="img-fluid" alt="Reddit">
+                      </span>
+                    <span class="title">Discord BOT</span>
+                  </a>
+                  
+                </div>
+              </div>
+              
+              <div class="others">
+                
+                <h3 class="cate-title">Outros Serviços</h3>
+                
+                <div class="items">
+                  
+                  <a href="https://discord.gg/3FhJxdVF9X" class="item">
+                    
+                    <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/status.png" class="icon img-fluid" alt="Icon">
+                    
+                    <span class="item-con">
+                        <span class="name">Status</span>
+                        <span class="des">Fique por dentro das manutenções e da estabilidade de todos os nossos servidores.</span>
+                      </span>
+                  </a>
+                  
+                  <a href="https://discord.gg/3FhJxdVF9X" class="item">
+                    
+                    <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/discord_002.png" class="icon img-fluid" alt="Icon">
+                    
+                    <span class="item-con">
+                        <span class="name">Atendimento ao Vivo</span>
+                        <span class="des">Via Discord</span>
+                      </span>
+                  </a>
+                  
+                  <a href="https://redhosting.com.br/terms.html" class="item">
+                    
+                    <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/laptop.svg" class="icon img-fluid" alt="Icon">
+                    
+                    <span class="item-con">
+                        <span class="name">Termos de Serviço</span>
+                        <span class="des">TOS</span>
+                      </span>
+                  </a>
+                  
+                  <a href="https://redhosting.com.br/parceiros" class="item">
+                    
+                    <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/data-protection.svg" class="icon img-fluid" alt="Icon">
+                    
+                    <span class="item-con">
+                        <span class="name">Aplicação Parceiro</span>
+                        <span class="des">Formulário para Parceria</span>
+                      </span>
+                  </a>
+                  
+                  <a href="#" class="item">
+                    
+                    <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/server-1.svg" class="icon img-fluid" alt="Icon">
+                    
+                    <span class="item-con">
+                        <span class="name">Aplicação Equipe</span>
+                        <span class="des">Formulário para fazer parte da Equipe</span>
+                      </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="f-area compute">
+              
+              <div class="others">
+                
+                <h3 class="cate-title">Todos os Serviços</h3>
+                
+                <div class="items">
+                  
+                  <a href="https://redhosting.com.br/minecraft-basico.html" class="item">
+                    
+                    <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/minecraft.png" class="icon img-fluid" alt="Icon">
+                    
+                    <span class="item-con">
+                        <span class="name">Minecraft Básico</span>
+                        <span class="des">Planos para o seu servidor.</span>
+                      </span>
+                  </a>
+                  
+                  <a href="https://redhosting.com.br/minecraft-avancado.html" class="item">
+                    
+                    <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/4-netherite.png" class="icon img-fluid" alt="Icon">
+                    
+                    <span class="item-con">
+                        <span class="name">Minecraft Avançado</span>
+                        <span class="des">Monte seu plano de acordo com as suas necessidades.</span>
+                      </span>
+                  </a>
+                
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="close-side-box-btn" id="close-side-box-btn">
+          <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/close.png" class="img-fluid" alt="Close">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  
+  <header class="main-header">
+    <div class="container">
+      
+      <div class="row align-items-center">
+
+        
+        <div class="col-xl-7 text-xl-left text-center">
+          
+          <h1 id="inicio" class="title-1 text-uppercase mb-2 mx-xl-0 mx-auto">HOSPEDAGEM DE MINECRAFT DE ALTA QUALIDADE!</h1>
+          <p class="para-1 mb-2 mx-xl-0 mx-auto">Descubra a excelência 
+em hospedagem de Minecraft! Jogue com seus amigos sem lag em um servidor
+ 24 horas ativo, suportando tanto Minecraft Bedrock quanto Java. Sua 
+aventura começa aqui!</p>
+          
+          <div class="buttons botao-criar-servidor" data-sr-id="2" style="visibility: visible; opacity: 1; transition: opacity 3s cubic-bezier(0.5, 0, 0, 1) 0s;">
+            <a href="https://redhosting.com.br/minecraft-avancado.html" class="btn btn-fill-primary shadow-off mr-1 mb-md-0 mb-1 textohost">Criar servidor</a>
+            <a href="https://financeiro.redhosting.com.br/index.php?rp=/login" class="btn btn-outline-dark shadow-off textohost areadocliente"><i class="fa-solid fa-user"></i>Área do Cliente</a>
+          </div>
+        </div>
+
+        
+        <div class="col-xl-5 d-xl-block d-none">
+          
+          <div class="banner-inicial textohost">
+            <img id="imagemprincipal" style="position: absolute; bottom: -120px;" src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/bg.png" alt="" width="400px">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  
+  <div class="se-ii bg-2">
+    <div class="container">
+      
+      <div class="row align-items-center">
+        
+        <div class="col-xl-4 col-12 text-xl-left text-center mb-xl-0 mb-5">
+          
+          <h2 class="title-1 mb-1 textohost">
+            <span>principais</span><br class="d-xl-block d-none">
+            <span>hospedagens</span><br class="d-xl-block d-none">
+            <span>vendidas pela</span><br>
+            <span class="primary-color">RedHosting.</span>
+          </h2>
+          
+          <p class="para-1 mb-0 textohost">Escolha o produto que te atende.</p>
+        </div>
+
+        
+        <div class="col-xl-8 col-12">
+          
+          <div class="row justify-content-center textohost">
+            
+            <div class="col-lg-2 col-md-3 col-6">
+              
+               <a href="https://redhosting.com.br/minecraft-avancado.html">
+              <div class="item text-center feature-icon" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+                <img class="lazy img-fluid" alt="Windows" src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/minecraft.png" style="">
+                <h3 class="text mb-0">Hospedagem Minecraft</h3>
+              </div>
+            </a>
+            </div>
+            
+            <div class="col-lg-2 col-md-3 col-6">
+              
+               <a href="https://redhosting.com.br/vps.html">
+              <div class="item text-center feature-icon" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+                <img class="lazy img-fluid" alt="Android" src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/vps.png" style="">
+                <h3 class="text mb-0">VPS Ryzen 9</h3>
+              </div>
+            </a>
+            </div>
+            
+            <div class="col-lg-2 col-md-3 col-6">
+              
+               <a href="https://redhosting.com.br/hospedagem-de-site.html">
+              <div class="item text-center feature-icon" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+                <img class="lazy img-fluid" alt="Ubuntu" src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/cpanel-logo.png" style="">
+                <h3 class="text mb-0">CPanel</h3>
+              </div>
+            </a>
+            </div>
+            
+            <div class="col-lg-2 col-md-3 col-6">
+              
+               <a href="https://redhosting.com.br/discord-bot.html">
+              <div class="item text-center feature-icon" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+                <img class="lazy img-fluid" alt="Debian" src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/discord.gif" style="">
+                <h3 class="text mb-0">Discord<br>BOT</h3>
+              </div>
+            </a>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="se-iii py-90">
+    <div class="container">
+      
+
+      <div class="se-head area-planos" data-sr-id="0" style="visibility: visible; opacity: 1; transition: opacity 3s cubic-bezier(0.5, 0, 0, 1) 0s;">
+        <h3 class="se-title-1">E OS NOSSOS PLANOS</h3>
+        <h4 class="se-title-2">Obtenha mais potência com nossos produtos de hospedagem</h4>
+      </div>
+      
+      <div class="plans mb-xl-4 mb-2 area-planos2" data-sr-id="3" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2s cubic-bezier(0.5, 0, 0, 1) 0s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0s;">
+        
+        <div class="row mx-xl-0">
+          
+          <div class="col-xl-3 col-md-6 mb-xl-0 mb-2 px-xl-0">
+            
+            <div class="plan">
+              
+              <div class="plan-head">
+                
+                <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/minecraft.png" style="width: 40px;" alt="">
+                <h3 class="plan-name">Hospedagem Minecraft</h3>
+                
+                <p class="plan-para">Linha Avançada</p>
+              </div>
+              
+              <div class="plan-price">
+                
+                <h4 class="price">R$ 11,90</h4>
+                
+                <p class="price-comment">A partir de</p>
+              </div>
+              
+              <div class="actions">
+                <a href="https://redhosting.com.br/minecraft-avancado.html" class="btn btn-fill-primary btn-sm shadow-off w-100">Criar Servidor</a>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="col-xl-3 col-md-6 mb-xl-0 mb-2 px-xl-0">
+            
+            <div class="plan popular-plan">
+              
+              <div class="plan-head">
+                
+                <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/vps.png" style="width: 40px;" alt="">
+                <h3 class="plan-name">VPS (Virtual Private Server)</h3>
+                
+                <p class="plan-para">Ryzen 9 7950X</p>
+              </div>
+              
+              <div class="plan-price">
+                
+                <h4 class="price">R$ 21,99</h4>
+                
+                <p class="price-comment">A partir de</p>
+              </div>
+              
+              <div class="actions">
+                <a href="https://redhosting.com.br/vps.html" class="btn btn-fill-primary btn-sm shadow-off w-100">Configurar</a>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="col-xl-3 col-md-6 mb-xl-0 mb-2 px-xl-0">
+            
+            <div class="plan">
+              
+              <div class="plan-head">
+                
+                <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/cpanel-logo.png" style="width: 40px;" alt="">
+                <h3 class="plan-name">Hospedagem de Site</h3>
+                
+                <p class="plan-para"></p>
+              </div>
+              
+              <div class="plan-price">
+                
+                <h4 class="price">R$ 5,99</h4>
+                
+                <p class="price-comment">A partir de</p>
+              </div>
+              
+              <div class="actions">
+                <a href="https://redhosting.com.br/hospedagem-de-site.html" class="btn btn-fill-primary btn-sm shadow-off w-100">Criar site</a>
+              </div>
+
+            </div>
+          </div>
+          
+          <div class="col-xl-3 col-md-6 mb-xl-0 mb-2 px-xl-0">
+            
+            <div class="plan">
+              
+              <div class="plan-head">
+                
+                <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/discord.gif" style="width: 40px;" alt="">
+                <h3 class="plan-name">Hospedagem de BOT</h3>
+                
+                <p class="plan-para"></p>
+              </div>
+              
+              <div class="plan-price">
+                
+                <h4 class="price">R$ 3,99</h4>
+                
+                <p class="price-comment">A partir de</p>
+              </div>
+              
+              <div class="actions">
+                <a href="https://redhosting.com.br/discord-bot.html" class="btn btn-fill-primary btn-sm shadow-off w-100">Criar bot</a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  
+  <div class="se-iv py-90 bg-2">
+    <div class="container">
+      
+      <div class="se-head">
+        <h3 class="se-title-1">Mais do que apenas uma hospedagem</h3>
+        <h4 class="se-title-2">Recursos sofisticados que você obtém ao adquirir conosco.</h4>
+      </div>
+      
+      <div class="space space-sm"></div>
+      
+      <div class="row justify-content-center">
+        
+        <div class="col-xl-3 col-lg-4 col-md-6 mb-2">
+          
+          <div class="box color-1">
+            
+            <a onclick="desempenho()" class="box-link"></a>
+            
+            <div class="icon">
+              <img data-src="assets/images/icons/network.svg" class="lazy img-fluid" alt="businessman" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+            </div>
+            
+            <h4 class="box-title">Melhor <br>Desempenho</h4>
+            
+            <p class="box-para">Possuímos máquinas hospedada nos Brasil,
+ assim obtendo uma melhor infraestrutura e melhor desempenho, somos 
+projetados para alta performance e segurança.</p>
+            
+            <div class="arrow text-right">
+              <img data-src="assets/images/icons/right-arrow.svg" class="lazy img-fluid" alt="Right-Arrow" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-4 col-md-6 mb-2">
+          
+          <div class="box color-2">
+            
+            <a onclick="protecao()" class="box-link"></a>
+            
+            <div class="icon">
+              <img data-src="assets/images/icons/security-on.svg" class="lazy img-fluid" alt="priority" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+            </div>
+            
+            <h4 class="box-title">Melhor<br>Proteção</h4>
+            
+            <p class="box-para">Os dados de nossos clientes são 
+criptografados com a tecnologia Secure Socket Layer(SSl), assim sendo, 
+são criptografados com a chave SHA-256.</p>
+            
+            <div class="arrow text-right">
+              <img data-src="assets/images/icons/right-arrow.svg" class="lazy img-fluid" alt="Right-Arrow" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-4 col-md-6 mb-2">
+          
+          <div class="box color-4">
+            
+            <a onclick="tecnico()" class="box-link"></a>
+            
+            <div class="icon">
+              <img data-src="assets/images/icons/hula-hoop.svg" class="lazy img-fluid" alt="hula-hoop" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+            </div>
+            
+            <h4 class="box-title">Suporte<br>Técnico</h4>
+            
+            <p class="box-para">Nossa equipe está monitorando os servidores 24/7, qualquer instabilidade nos permite um tempo de resposta rápido.</p>
+            
+            <div class="arrow text-right">
+              <img data-src="assets/images/icons/right-arrow.svg" class="lazy img-fluid" alt="Right-Arrow" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-4 col-md-6 mb-2">
+          
+          <div class="box color-5">
+            
+            <a onclick="entrega()" class="box-link"></a>
+            
+            <div class="icon">
+              <img data-src="assets/images/icons/data-storage-device.svg" class="lazy img-fluid" alt="data-storage-device" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+            </div>
+            
+            <h4 class="box-title">Entrega<br>Imediata</h4>
+            
+            <p class="box-para">Para que esperar se você pode ter seu produto agora mesmo? Receba seu produto em no menor tempo possível.</p>
+            
+            <div class="arrow text-right">
+              <img data-src="assets/images/icons/right-arrow.svg" class="lazy img-fluid" alt="Right-Arrow" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="se-v py-90">
+    <div class="container">
+      
+      
+      
+      <div class="space space-sm"></div>
+
+     
+    </div>
+  </div>
+
+  
+  <div class="se-vi py-90 bg-2">
+    <div class="container">
+      
+      <div class="se-head" id="faq-inicio">
+        <h3 class="se-title-1">Confie em nossos clientes</h3>
+        <h4 class="se-title-2">O que nossos clientes têm a dizer</h4>
+      </div>
+      
+      <div class="space space-sm"></div>
+      
+      <div class="row">
+        
+        <div class="col-xl-3 col-lg-6">
+          
+          <div class="row">
+            
+            
+            <div class="col-12">
+              
+              <div class="box">
+                
+                <div class="user-info">
+                  <img data-src="assets/images/avatars/cliente1.gif" class="lazy avatar img-fluid" alt="Avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                  <div class="name">Bárbara Dior</div>
+                  <div class="job">Cliente</div>
+                </div>
+                
+                <p class="quotes"><b>Incrível</b><br><br>Sem dúvida, o 
+melhor suporte que já tive, fui atendido pelo Matheus! A hospedagem de 
+bots é fantástica. O atendimento é super bacana e eficiente. Hoje é 
+sábado e eles resolveram meu problema no final de semana, o que é 
+incrível. Só me arrependo de não t...</p>
+                <a href="https://br.trustpilot.com/review/redhosting.com.br" target="_blank"><img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/trust-pilot.webp" class="trust-pilot" alt=""></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-6">
+          
+          <div class="row">
+            
+            <div class="col-12">
+              
+              <div class="box">
+                
+                <div class="user-info">
+                  <img data-src="assets/images/avatars/cliente2.png" class="lazy avatar img-fluid" alt="Avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                  <div class="name">Gabriel Soares</div>
+                  <div class="job">Cliente</div>
+                </div>
+                
+                <p class="quotes"><b>Serviço incrível e atendimento excelente</b><br><br>Estou
+ usando serviço de hospedagem para BOT de discord e posso dizer por 
+experiencia própria que é um dos melhores serviços de host que já 
+utilizei. Possui muita autonomia para configuração do BOT, performance, 
+tempo...</p>
+                <a href="https://br.trustpilot.com/review/redhosting.com.br" target="_blank"><img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/trust-pilot.webp" class="trust-pilot" alt=""></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-6">
+          
+          <div class="row">
+            
+            <div class="col-12">
+              
+              <div class="box">
+                
+                <div class="user-info">
+                  <img data-src="assets/images/avatars/cliente3.png" class="lazy avatar img-fluid" alt="Avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                  <div class="name">Lucius Santos</div>
+                  <div class="job">Cliente</div>
+                </div>
+                
+                <p class="quotes"><b>Essa é a melhor Host que já usei!!!</b><br><br>Essa
+ é a melhor Host que já usei até hoje, a Administração é muito 
+competente e simpaticos fora que tem um excelente custo beneficio.
+
+                  uso a host faz 1 ano e nunca tive problemas com eles, 
+diferente de outras hospedagens!!!! eu indico</p>
+                  <a href="https://br.trustpilot.com/review/redhosting.com.br" target="_blank"><img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/trust-pilot.webp" class="trust-pilot" alt=""></a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-6">
+          
+          <div class="row">
+            
+            <div class="col-12">
+              
+              <div class="box">
+                
+                <div class="user-info">
+                  <img data-src="assets/images/avatars/cliente4.png" class="lazy avatar img-fluid" alt="Avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                  <div class="name">syncwrld!</div>
+                  <div class="job">Cliente</div>
+                </div>
+                
+                <p class="quotes"><b>De todas as hospedagens que já passei</b><br><br>De
+ todas as hospedagens que já passei, essa com certeza foi a melhor. O 
+dono está sempre presente e dando o suporte necessário, caso aconteça 
+algo, sempre é resolvido em poucos instantes. Curti demais!</p>
+                <a href="https://br.trustpilot.com/review/redhosting.com.br" target="_blank"><img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/trust-pilot.webp" class="trust-pilot" alt=""></a>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+      <div class="space space-sm"></div>
+      
+      <div class="buttons text-center">
+        <div class="trustpilot-widget" data-locale="pt-BR" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="66133071c9d6fa86f6333470" data-style-height="52px" data-style-width="100%" style="position: relative;"><iframe style="position: relative; height: 52px; width: 100%; border-style: none; display: block; overflow: hidden;" title="Avaliações de clientes fornecidas pela Trustpilot" src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/index.htm"></iframe></div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  
+  <div class="faqs py-90" id="faqs">
+    <div class="container">
+      
+      <div class="se-head">
+        <h3 class="se-title-1">FAQS</h3>
+        <h4 class="se-title-2">Tem dúvidas?<br>Bem, nós temos respostas.</h4>
+      </div>
+      
+      <div class="space space-sm"></div>
+      
+      <div class="row">
+        
+        <div class="col-xl-4 pr-xl-3 mb-xl-0 mb-2">
+          
+          <div class="category" id="faqs-category">
+            
+            <div class="item active" data-category="general">
+              <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/planet-earth.png" class="icon img-fluid" alt="Icon">
+              <div class="text">
+                <h5 class="item-title">Questões gerais</h5>
+                <p class="item-des">Novo por aqui? Comece com o básico.</p>
+              </div>
+            </div>
+            
+            <div class="item" data-category="features">
+              <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/favorite.png" class="icon img-fluid" alt="Icon">
+              <div class="text">
+                <h5 class="item-title">Informações Técnicas</h5>
+                <p class="item-des">Descubra um pouco mais sobre possíveis dúvidas técnicas.</p>
+              </div>
+            </div>
+            
+            <div class="item" data-category="privacy">
+              <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/lock.png" class="icon img-fluid" alt="Icon">
+              <div class="text">
+                <h5 class="item-title">Privacidade &amp; Segurança</h5>
+                <p class="item-des">Levamos a segurança e a privacidade a sério.</p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="col-xl-8">
+          
+          <div class="content">
+            
+            <div class="box category-general">
+              
+              <div class="box-head">
+                <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/planet-earth.png" class="icon img-fluid" alt="Icon">
+                <div class="text">
+                  <h5 class="box-title">Questões gerais</h5>
+                  <p class="box-des">Novo por aqui? Comece com o básico.</p>
+                </div>
+              </div>
+              
+              <div class="box-body">
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">O que é um servidor virtual privado (VPS)?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p> Um VPS, ou <a href="https://redhosting.com.br/vps.html">Virtual Private Server</a>,
+ é um ambiente virtual isolado que opera como um servidor dedicado, 
+proporcionando mais controle e personalização do que a hospedagem 
+compartilhada. Ele é uma excelente opção para usuários que necessitam de
+ recursos exclusivos para seus projetos.</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">Comprei uma hospedagem com a RedHosting, e agora?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>Parabéns pela sua escolha! Após a compra da 
+hospedagem, você receberá a fatura e os detalhes da sua hospedagem no 
+mesmo endereço de e-mail que foi cadastrado durante o processo de 
+compra. Certifique-se de verificar sua caixa de entrada, incluindo a 
+pasta de spam, para garantir que você tenha recebido todas as 
+informações necessárias. Caso não encontre os detalhes, entre em contato
+ com nossa equipe de suporte, e ficaremos felizes em ajudar a fornecer 
+as informações necessárias. O próximo passo será configurar e aproveitar
+ os benefícios da sua nova hospedagem com a RedHosting!</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">Como posso entrar em contato com o suporte técnico em caso de problemas ou dúvidas?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>Oferecemos suporte técnico 24/7. Você pode entrar em contato conosco por meio do nosso sistema de tickets em nosso <a href="https://discord.gg/3FhJxdVF9X">Discord</a>, chat ao vivo ou por <a href="mailto:suporte@redhosting.com.br">e-mail</a>. Estamos sempre prontos para ajudar a resolver qualquer questão que você possa ter.</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">Quais são os benefícios da hospedagem de site oferecida por vocês?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p> Nossa <a href="https://redhosting.com.br/hospedagem-de-site.html">hospedagem de site</a>
+ oferece alta confiabilidade, segurança avançada e suporte técnico 
+dedicado. Além disso, fornecemos recursos escaláveis para atender desde 
+sites simples até projetos mais complexos.</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">Qual a diferença entre a Hospedagem de Minecraft Básica e Avançada?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>Na Hospedagem de Minecraft Básica, você conta com
+ planos simples de entender e pre-definidos pela empresa. Já a Avançada é
+ recomendada para as pessoas que querem montar seus próprios planos de 
+acordo com as suas necessidades.</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">Quais são os principais serviços de hospedagem oferecidos pela sua empresa?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>Oferecemos hospedagem para servidores de 
+Minecraft, VPS (Virtual Private Server), hospedagem para bots no discord
+ e também serviços de hospedagem de sites.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="box category-features">
+              
+              <div class="box-head">
+                <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/favorite.png" class="icon img-fluid" alt="Icon">
+                <div class="text">
+                  <h5 class="box-title">Informações Técnicas</h5>
+                  <p class="box-des">Descubra um pouco mais sobre possíveis dúvidas técnicas.</p>
+                </div>
+              </div>
+              
+              <div class="box-body">
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">Qual é o painel de controle utilizado pela RedHosting?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>A <a href="#">RedHosting</a> emprega dois painéis
+ de controle amplamente reconhecidos. O WHMCS (Área do Cliente) oferece 
+uma interface para gerenciar aspectos administrativos, enquanto o 
+Pterodactyl é dedicado ao controle interno dos serviços pelos clientes, 
+proporcionando uma experiência eficiente e fácil de usar.</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">Quais são as medidas de segurança implementadas em seus serviços de hospedagem?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>Investimos em firewalls avançados, monitoramento 
+constante e atualizações regulares de segurança para garantir a 
+integridade dos dados dos clientes. Além disso, realizamos backups 
+frequentes para assegurar a recuperação em casos imprevistos.</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">É possível migrar um site existente para seus serviços de hospedagem?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p> Sim, facilitamos o processo de migração. Entre 
+em contato com nossa equipe de suporte, e estaremos prontos para ajudar 
+na transferência do seu site existente para nossos servidores, 
+garantindo uma transição suave e sem complicações.</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">Quais são os recursos de monitoramento disponíveis para os clientes?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>Fornecemos ferramentas de monitoramento em tempo 
+real através do painel de controle, permitindo que os clientes 
+acompanhem o desempenho de seus sites ou servidores, incluindo uso de 
+recursos, tráfego e estatísticas relevantes.</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">Como realizo a configuração inicial de um servidor Minecraft em sua plataforma?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>Após adquirir o plano adequado para suas 
+necessidades, forneceremos acesso ao painel de controle Pterodactyl, 
+onde você poderá configurar e personalizar seu servidor Minecraft de 
+maneira intuitiva. Nossa equipe está disponível para auxiliar em 
+qualquer etapa do processo.</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">Quais são os requisitos mínimos para hospedar um site em seus serviços?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>Recomendamos um plano de hospedagem que ofereça, 
+no mínimo, 2GB de espaço em disco e suporte a PHP e MySQL para garantir 
+um desempenho adequado. Planos específicos podem ser discutidos com 
+nossa equipe de suporte para atender a demandas mais complexas.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="box category-privacy">
+              
+              <div class="box-head">
+                <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/lock.png" class="icon img-fluid" alt="Icon">
+                <div class="text">
+                  <h5 class="box-title">Privacidade &amp; Segurança</h5>
+                  <p class="box-des">Levamos a segurança e a privacidade a sério.</p>
+                </div>
+              </div>
+              
+              <div class="box-body">
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">Como são realizados os backups dos dados dos clientes e com que frequência?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>Realizamos backups automáticos diários de todos 
+os dados dos clientes. Esses backups são armazenados de forma segura em 
+locais redundantes, garantindo a recuperação eficiente em caso de 
+incidentes.</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">A RedHosting oferece certificados SSL para garantir a segurança das transmissões de dados?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>Sim, todos os nossos planos de hospedagem incluem
+ certificados SSL gratuitos para proteger as comunicações entre os 
+visitantes do site e o servidor, garantindo a segurança das informações 
+transmitidas.</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">Como posso garantir a segurança do meu servidor Minecraft hospedado com vocês?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>Oferecemos recursos avançados de segurança para 
+servidores Minecraft, incluindo firewalls personalizáveis e a capacidade
+ de restringir o acesso apenas a jogadores autorizados. Além disso, 
+incentivamos práticas de segurança, como atualizações regulares de 
+plugins e senhas seguras.</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">A RedHosting realiza testes de segurança em seus servidores?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>Sim, realizamos testes regulares de segurança 
+para identificar e corrigir potenciais vulnerabilidades. Nossa equipe 
+está constantemente monitorando e aprimorando as defesas para garantir 
+um ambiente seguro para os dados dos clientes</p>
+                  </div>
+                </div>
+                
+                <div class="q">
+                  
+                  <div class="q-h">
+                    
+                    <h4 class="text">Em caso de perda de dados, como a RedHosting auxilia na recuperação?</h4>
+                    
+                    <div class="plus">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  
+                  <div class="q-b">
+                    <p>Além dos backups diários, nossa equipe de suporte
+ está pronta para ajudar na recuperação de dados em situações adversas. 
+Entre em contato conosco imediatamente em caso de perda de dados para 
+receber assistência personalizada.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  
+
+  
+  <div class="theme-settings" id="theme-settings">
+    
+    <div class="title-1">Configurações do site</div>
+    
+    <div class="close-btn" id="theme-settings-close-btn">
+      <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/close_002.png" class="img-fluid" alt="Icon">
+    </div>
+    
+    <div class="section">
+      
+      <div class="section-title">Temas</div>
+      
+      <div class="themes">
+        
+        <div class="theme-btn light-theme" id="light-theme-btn">
+          <div class="color"></div>
+          <span class="name">Claro</span>
+        </div>
+        
+        <div class="theme-btn dark-theme active-theme" id="dark-theme-btn">
+          <div class="color"></div>
+          <span class="name">Noturno</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      
+      <div class="section-title">Acesso rápido</div>
+      
+      <div class="q-link">
+        <a href="https://discord.gg/3FhJxdVF9X">Servidor do Discord</a>
+      </div>
+      
+      <div class="q-link">
+        <a href="https://financeiro.redhosting.com.br/">Área do Cliente</a>
+      </div>
+      
+      <div class="q-link">
+        <a href="https://app.redhosting.com.br/">Painel RedHosting</a>
+      </div>
+  
+    </div>
+    
+    <div class="section">
+      
+      <div class="section-title">Copyright</div>
+      
+      <p class="copyright-text">Copyright © 2024, RedHosting, LTDA. Todos os direitos reservados. CNPJ 52.950.042/0001-97</p>
+    </div>
+  </div>
+
+  
+  <div class="cookies-dialog" id="cookies-dialog" style="display: none;">
+    <div class="container">
+      
+      <div class="content">
+        
+        <h3 class="title-3">Sua privacidade é importante</h3>
+        
+        <div class="d-lg-flex align-items-end">
+          
+          <p class="para-1 mr-3">Usamos cookies para fornecer nossos 
+serviços e para análises e marketing. Para saber mais sobre o uso de 
+cookies, consulte nossa Política de Privacidade e Aviso de Cookies e 
+Rastreamento. Ao continuar a navegar no nosso site, você concorda com o 
+uso de cookies.<br><a href="https://redhosting.com.br/terms.html">Termos de Serviço</a></p>
+          
+          <div class="buttons text-right">
+            <button type="button" class="btn btn-fill-primary btn-sm shadow-off" id="cookies-dialog-btn">Aceitar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="contact-bubble">
+    
+
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="58f6fc0b-348f-44fb-ae73-df4862a485c2";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+</div>
+
+  
+  <footer class="theme-footer">
+    
+    <div class="footer-top">
+      <div class="container-fluid">
+        
+        <div class="list-group">
+          
+          <ul class="footer-list list-unstyled">
+            <li class="list-title">Suporte</li>
+            <li class="list-link"><a href="https://redhosting.com.br/knowledge-base.html">Atendimento ao vivo (Discord)</a></li>
+            <li class="list-link"><a href="https://financeiro.redhosting.com.br/contact.php">Abrir Ticket</a></li>
+            <li class="list-link"><a href="mailto:suporte@redhosting.com.br">Email</a></li>
+          </ul>
+          
+          <ul class="footer-list list-unstyled">
+            <li class="list-title">Recursos</li>
+            <li class="list-link"><a href="https://redhosting.com.br/minecraft-avancado.html">Hospedagem Minecraft Avançada</a></li>
+            <li class="list-link"><a href="https://redhosting.com.br/vps.html">VPS Ryzen 9</a></li>
+            <li class="list-link"><a href="https://redhosting.com.br/hospedagem-de-site.html">Hospedagem de Site</a></li>
+            <li class="list-link"><a href="https://redhosting.com.br/discord-bot.html">Hospedagem de BOT</a></li>
+          </ul>
+          
+          <ul class="footer-list list-unstyled">
+            <li class="list-title">Programas de parceiros</li>
+            <li class="list-link"><a href="https://financeiro.redhosting.com.br/affiliates.php">Afiliados</a></li>
+            <li class="list-link"><a href="https://redhosting.com.br/parceiros">Formulário para Parceria</a></li>
+            <li class="list-link"><a href="https://redhosting.com.br/aplicacao">Aplicação Equipe</a></li>
+          </ul>
+          
+          <ul class="footer-list list-unstyled">
+            <li class="list-title">Conta</li>
+            <li class="list-link"><a href="https://financeiro.redhosting.com.br/index.php?rp=/login">Login</a></li>
+            <li class="list-link"><a href="https://financeiro.redhosting.com.br/register.php">Criar Conta</a></li>
+            <li class="list-link"><a href="https://financeiro.redhosting.com.br/">Área do Cliente</a></li>
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-middle">
+      <div class="container-fluid">
+        
+        <div class="reg-bar text-md-left text-center">
+          <div class="d-lg-flex align-items-center justify-content-between">
+            
+            <div class="text">
+              
+              <h4 class="title-4">Participe do nosso programa de Fidelidade<br>e economize até 15% OFF</h4>
+              
+              <p class="para-2"> Junte-se ao nosso Programa de Fidelidade e ganhe até 15% de desconto! Sua fidelidade é valorizada, e queremos<br> recompensar você. Economize enquanto aproveita os benefícios exclusivos. Participar é fácil e as vantagens são instantâneas!.</p>
+            </div>
+            
+            <div class="buttons mt-lg-0 mt-3">
+              <a href="https://discord.gg/3FhJxdVF9X" class="btn btn-fill-primary shadow-off text-uppercase font-500">Informações no Discord</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container-fluid">
+        
+        <div class="content d-flex align-items-start mb-2">
+          
+            <div class="logo mb-lg-0 mb-1">
+              <a href="#">
+                <img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/bg.png" class="img-fluid" alt="RedHosting">              
+              </a>
+            </div>
+          
+          <div class="copyright mr-lg-5">
+            
+            <ul class="links list-unstyled d-flex align-items-center flex-wrap">
+              <li><a href="https://redhosting.com.br/terms.html">Termos de Serviço</a></li>
+              <li><a href="https://redhosting.com.br/terms.html">Política de Privacidade</a></li>
+              <li><a href="https://financeiro.redhosting.com.br/">Área do Cliente</a></li>
+            </ul>
+            
+            <p class="para-3">Copyright © 2024, RedHosting, LTDA. Todos os direitos reservados. CNPJ 52.950.042/0001-97</p>
+          </div>
+          
+          <ul class="social-list list-unstyled d-flex align-items-center justify-content-lg-end justify-content-center ml-lg-auto mt-lg-0 mt-2">
+            <li><a href="https://discord.gg/3FhJxdVF9X" target="_blank"><img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/discord_002.png" alt="Icon"></a></li>
+            <li><a href="https://instagram.com/red.hosting" target="_blank"><img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/instagram.png" alt="Icon"></a></li>
+            <li><a href="https://www.tiktok.com/@redhosting" target="_blank"><img src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/tiktok.png" target="_blank" alt="Icon"></a></li>
+          </ul>
+        </div>
+        
+        <div class="content d-lg-flex align-items-end flex-wrap">
+
+          
+          <div class="signature ml-auto mt-lg-0 mt-1">
+            <p class="para-3">Developed by <a href="https://matheusfer.redhosting.com.br/">MatheusFer</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+  <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/jquery-3.3.1.min.js"></script>  
+  
+  <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/jquery.lazy.min.js"></script> 
+  
+  <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/jQuery.cookies.js"></script>
+  
+  <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/templates.js"></script>
+  
+  <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/script.js"></script>  
+  
+    <link rel="stylesheet" href="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/dark.css">
+    <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/sweetalert2.min.js"></script>
+
+  
+  <script>
+    function desempenho() {
+      Swal.fire("Possuímos máquinas hospedada nos Brasil, assim obtendo uma melhor infraestrutura e melhor desempenho, somos projetados para alta performance e segurança.");
+    }
+    function protecao() {
+      Swal.fire("Os dados de nossos clientes são criptografados com a tecnologia Secure Socket Layer(SSl), assim sendo, são criptografados com a chave SHA-256.");
+    }
+    function suporte() {
+      Swal.fire("O suporte é a parte mais importante da empresa. Fornecemos suporte de diversas formas, entre ela esta o nosso grupo do Discord, onde também são postandos anuncios.");
+    }
+    function tecnico() {
+      Swal.fire("Nossa equipe está monitorando os servidores 24/7, qualquer instabilidade nos permite um tempo de resposta rápido.");
+    }
+    function entrega() {
+      Swal.fire("Para que esperar se você pode ter seu produto agora mesmo? Receba seu produto em no menor tempo possível.");
+    }
+    function melhorping() {
+      Swal.fire("Possuímos o melhor ping variando de 5-25 ms, maquinas no Brasil com melhor infraestrutura.");
+    }
+  </script>
+
+  <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/typeanimation.js"></script>
+  
+  <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/copiar.js"></script>
+  <script type="text/javascript" src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/tp.widget.bootstrap.min.js" async=""></script>
+  <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/mc-player-counter.min.js"></script>
+  <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/404.htm"></script>
+
+  <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/scrollreveal.js"></script>
+  <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/animacao-scroll.js"></script>
+
+  <script type="text/javascript" src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/vanilla-tilt.js"></script>
+  <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/animationcards.js"></script>
+
+  <script src="Compre%20seu%20servidor%20de%20Minecraft%20_%20Host%20de%20Minecraft%20_%20RedHosting_files/alertas.js"></script>
+
+  <script>document.addEventListener('contextmenu', event => event.preventDefault());</script>
+
+
+
+<div aria-live="polite" class="crisp-client"><div class="cc-rukbw"><div class="cc-9yvsj"><style type="text/css">.crisp-client *:focus-visible {
+  outline-color: #A71004 !important;
+}
+
+.crisp-client .cc-1brb6 .cc-co79q {
+  color: #FFFFFF !important;
+}
+
+.crisp-client .cc-1brb6 .cc-1dvce {
+  color: #E51E0F !important;
+}
+
+.crisp-client .cc-1brb6 .cc-5t1tm {
+  background-color: #FFFFFF !important;
+}
+
+.crisp-client .cc-1brb6 .cc-1q2sq {
+  background-color: #A71004 !important;
+}
+
+.crisp-client .cc-1brb6 .cc-62iw4 {
+  background-color: #CC1B0E !important;
+}
+
+.crisp-client .cc-1brb6 .cc-1kgzy {
+  background-color: #E51E0F !important;
+}
+
+.crisp-client .cc-1brb6 .cc-1kgzy *:focus-visible {
+  outline-color: #F0F2F5 !important;
+}
+
+.crisp-client .cc-1brb6 .cc-m59gn {
+  background-color: #F9F3F3 !important;
+}
+
+.crisp-client .cc-1brb6 .cc-jtuj4 {
+  background-color: #F0F2F5 !important;
+}
+
+.crisp-client .cc-1brb6 .cc-1ikmr {
+  border-color: #FFFFFF !important;
+}
+
+.crisp-client .cc-1brb6 .cc-1i61z,
+.crisp-client .cc-1brb6 .cc-134r8:hover {
+  border-color: #E51E0F !important;
+}
+
+.crisp-client .cc-1brb6 .cc-un6tk {
+  border-color: rgba(229, 30, 15, 0.2) !important;
+}
+
+.crisp-client .cc-1brb6 .cc-weiiy {
+  border-bottom-color: #E51E0F !important;
+}
+
+.crisp-client .cc-1brb6 .cc-18tkz::placeholder {
+  color: #92A9C1 !important;
+}
+
+.crisp-client .cc-1brb6 .cc-10xgc::placeholder {
+  color: #92A9C1 !important;
+}
+
+.crisp-client .cc-1brb6 .cc-y2afy,
+.crisp-client .cc-1brb6 .cc-y2afy:active,
+.crisp-client .cc-1brb6 .cc-1swm7:hover .cc-17cww,
+.crisp-client .cc-1brb6 .cc-1swm7 .cc-17cww:active {
+  background: #A71004 !important;
+}
+
+.crisp-client .cc-1brb6 .cc-coh7k,
+.crisp-client .cc-1brb6 .cc-1cx9a:hover,
+.crisp-client .cc-1brb6 .cc-1xhex[data-active="true"] .cc-ydjl9 {
+  background: #C5170A !important;
+}
+
+.crisp-client .cc-1brb6 .cc-y2afy:hover,
+.crisp-client .cc-1brb6 .cc-coh7k:hover,
+.crisp-client .cc-1brb6 .cc-1cx9a:active {
+  background: #B81206 !important;
+}
+
+.crisp-client .cc-1brb6 .cc-coh7k:active {
+  background: #A71004 !important;
+}
+
+.crisp-client .cc-1brb6 .cc-aoc5z:hover .cc-fajgc {
+  background: #C5170A !important;
+}
+
+.crisp-client .cc-1brb6 .cc-aoc5z .cc-fajgc:active {
+  background: #B81206 !important;
+}
+
+.crisp-client .cc-1brb6 .cc-f5i1a,
+.crisp-client .cc-1brb6 .cc-70ynx:hover .cc-iuh54,
+.crisp-client .cc-1brb6 .cc-70ynx .cc-iuh54:active {
+  background: #E51E0F !important;
+}
+
+.crisp-client .cc-1brb6 .cc-f5i1a:hover {
+  background: #CC1B0E !important;
+}
+
+.crisp-client .cc-1brb6 .cc-f5i1a:active {
+  background: #C5170A !important;
+}
+
+.crisp-client .cc-1brb6 .cc-vibqn::selection,
+.crisp-client .cc-1brb6 .cc-vibqn *::selection {
+  color: #1c293b !important;
+  background-color: #FFE5E4 !important;
+}</style></div><div class="cc-k4lmp"><style type="text/css">.crisp-client .cc-1brb6 {
+  z-index: 1000000;
+}</style></div></div><div id="crisp-chatbox" dir="ltr" translate="no" tabindex="-1" class="cc-1brb6" data-hidden="false" data-force-show="false" data-color-mode="light" data-availability="away" data-lock-maximized="false" data-website-logo="false" data-last-operator-face="false" data-ongoing-operator-face="false" data-availability-tooltip="false" data-hide-vacation="false" data-blocked="false" data-mobile-view="false" data-full-view="false" data-small-view="true" data-large-view="false" data-has-local-messages="false" data-was-availability-online="false" data-is-activity-ongoing="false" data-hide-on-away="false" data-hide-on-mobile="false" data-position-reverse="false" lang="en"><div class="cc-1yy0g cc-1wive cc-vibqn"><a data-maximized="false" data-is-failure="false" class="cc-1m2mf" tabindex="0" role="button" aria-label="Open chat" data-pane-animate-entrance="false" data-pop="minimized:open"><span class="cc-6lwfw"><!--v-if--></span><span class="cc-157aw cc-1kgzy"><span data-id="chat_closed" data-is-ongoing="false" class="cc-d73fc"><span class="cc-1bvfm cc-hshc7"><!--v-if--></span></span></span></a></div></div></div></body></html>
